@@ -1,0 +1,155 @@
+*{ //Eliminamos todos los márgenes extra que añade css por defecto
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; //Cambiamos el modelo de sizing para que las medidas también incluyan el padding y el borde.
+}
+
+@mixin align-center { //Pequeño mixin para centrar todo el contenido y no tener que repetirnos
+    display: flex; //Flexbox para un mejor diseño responsivo
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 4em;
+    color: white;
+    overflow: hidden; //Esto evita que aparezca una segunda barra de desplazamiento al poner el nav
+
+    nav {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10vh; 
+        background-color: rgba(255, 255, 255, 0.8); /* Ejemplo de fondo semitransparente */
+        z-index: 10; /* Para asegurarnos de que esté por encima del contenido */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
+    --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
+    --#{$prefix}navbar-color: #{$navbar-light-color};
+    --#{$prefix}navbar-hover-color: #{$navbar-light-hover-color};
+    --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
+    --#{$prefix}navbar-active-color: #{$navbar-light-active-color};
+    --#{$prefix}navbar-brand-padding-y: #{$navbar-brand-padding-y};
+--#{$prefix}navbar-brand-margin-end: #{$navbar-brand-margin-end};
+--#{$prefix}navbar-brand-font-size: #{$navbar-brand-font-size};
+--#{$prefix}navbar-brand-color: #{$navbar-light-brand-color};
+--#{$prefix}navbar-brand-hover-color: #{$navbar-light-brand-hover-color};
+--#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+--#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
+--#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
+--#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
+--#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
+--#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
+--#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
+--#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
+--#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
+
+    .parallax_wrapper { //Wrapper que incluye todas las capas con efecto parallax
+        height: 100vh; //Tamaño del espacio donde irá el parallax
+        overflow-x: hidden;
+        overflow-y: auto; //Esto hace aparecer una barra de desplazamiento vertical en caso de que el contenido desborde el eje y
+        perspective: 300px; //Significa que el punto de vista está a 300 píxeles de distancia del plano de proyección. Cuanto menor sea el valor, más pronunciado será el efecto 3D.
+
+        .parallax_group {
+            position: relative; //Establece un contexto para que el position absolute de las layers pueda ejecutarse.
+            height: 100vh;
+            transform-style: preserve-3d; //Algunos navegadores se cargan el efecto 3d y "aplanan" la web. Esto lo evita.
+
+            .parallax_layer {
+                position: absolute; //Para que las capas se superpongan
+                inset: 0; //es una forma abreviada de establecer las propiedades top, right, bottom y left a 0 al mismo tiempo
+                @include align-center;
+            }
+
+            .bg_layer {
+                // scale calculation: 1 + ((Z transform value * -1) / perspective))
+                transform: translateZ(-300px) scale(2);
+                color: blue;
+            } //movemos la capa lejos y le duplicamos el tamaño
+
+            .mid_layer {
+                transform: translateZ(0); //Esto no hace nada
+            }
+
+            .top_layer {
+                transform: translateZ(100px) scale(0.66);
+            } //Acercamos la capa y la hacemos mas pequeña
+        }
+
+        .outro_screen { 
+            height: 100vh;
+            background-color: teal;
+            @include align-center;
+        }
+
+        #intro {
+            z-index: -1; 
+        }
+
+        #group-1 {
+            z-index: 0;
+        }
+
+        #intro > .bg_layer { //selecciona todos los elementos con la clase base_layer que son hijos directos del elemento con el ID group-1.
+            //background-image: url("images/wolf.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: tomato;
+    }
+
+        #group-1 > .mid_layer { //selecciona todos los elementos con la clase base_layer que son hijos directos del elemento con el ID group-1.
+                //background-image: url("images/wolf.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-color: crimson;
+        }
+
+        #group-2 > .mid_layer {
+            background-color: yellowgreen;
+        }
+
+        #group-3 > .mid_layer {
+            background-color: blue;
+        }
+
+        #group-4 > .mid_layer {
+            background-color: purple;
+        }
+
+        #group-5 > .mid_layer {
+            background-color: rosybrown;
+        }
+
+        #group-6 > .mid_layer {
+            background-color: peru;
+        }
+
+        #group-7 > .mid_layer {
+            background-color: grey;
+        }
+
+        #group-8 > .mid_layer {
+            background-color: turquoise;
+        }
+ 
+    }
+}
+
+
+//Extra:
+.parallax_layer {
+    min-width: 100vw; // Aseguramos que ocupe todo el ancho del viewport (para problemas de visualización en Chrome que no ocurren en otros navegadores)
+}

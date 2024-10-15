@@ -1,29 +1,73 @@
-@charset "UTF-8";
+@font-face {
+  font-family: "BebasNeue";
+  src: url(Fonts/BebasNeue-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "UniNeue";
+  src: url(Fonts/UniNeue-Trial-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Nexa";
+  src: url(Fonts/Nexa-Heavy.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Mont";
+  src: url(Fonts/Mont-HeavyDEMO.otf) format("otf");
+}
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   box-sizing: border-box;
 }
 
 body {
   font-family: sans-serif;
-  font-size: 4em;
+  font-size: 1.8em;
   color: white;
-  overflow: hidden;
+  background-color: white;
 }
-body nav {
-  position: fixed;
-  z-index: 5;
-  top: 0;
-  left: 0;
+body .navbar {
+  background-color: transparent !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
   width: 100%;
-  height: 10vh;
-  background-color: rgba(255, 255, 255, 0.8); /* Ejemplo de fondo semitransparente */
-  z-index: 10; /* Para asegurarnos de que esté por encima del contenido */
+  z-index: 1;
+  font-size: 0.7em;
+  padding-right: 20px;
+  font-family: "Outfit";
+}
+body .navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+body .navbar a {
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+body .navbar .nav-item {
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+body .navbar .nav-item:hover {
+  outline: 1px solid white;
+  border-radius: 5px;
+}
+body .navbar .navbar-toggler {
+  background-color: white;
+}
+body .navbar.scrolled {
+  background-color: white !important; /* Cambiar a azul cuando se desplaza */
+}
+body .navbar.scrolled a {
+  color: black;
+  text-decoration: none;
+  text-shadow: none;
+}
+body .navbar.scrolled .nav-item:hover {
+  outline: 1px solid black;
+  border-radius: 5px;
 }
 body .parallax_wrapper {
   height: 100vh;
@@ -65,21 +109,35 @@ body .parallax_wrapper .outro_screen {
 body .parallax_wrapper #intro {
   z-index: -1;
 }
-body .parallax_wrapper #group-1 {
-  z-index: 0;
-}
 body .parallax_wrapper #intro > .bg_layer {
+  background-image: url("Imagenes/hero13.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-color: tomato;
 }
+body .parallax_wrapper .title {
+  position: absolute;
+  bottom: 10vh;
+  right: 10vw;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-family: "Outfit";
+  color: white;
+}
+body .parallax_wrapper .title h1 {
+  font-size: 2.5em;
+}
+body .parallax_wrapper .title h2 {
+  font-size: 1.2em;
+}
+body .parallax_wrapper #group-1 {
+  z-index: 0;
+}
 body .parallax_wrapper #group-1 > .mid_layer {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   background-color: crimson;
 }
 body .parallax_wrapper #group-2 > .mid_layer {
@@ -104,127 +162,6 @@ body .parallax_wrapper #group-8 > .mid_layer {
   background-color: turquoise;
 }
 
-h1 {
-  font-size: 2em; /* Títulos grandes pero razonables */
-}
-
-p {
-  font-size: 0.5em; /* Texto de párrafo normal */
-}
-
-img {
-  margin: 0;
-  padding: 0;
-  display: block;
-}
-
 .parallax_layer {
   min-width: 100vw;
 }/*# sourceMappingURL=style.css.map */
-
-/* Ajustes para el contenedor flex */
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* El primer elemento (ESPACIO) que ocupe poco espacio */
-.flex-item:first-child {
-  flex: 0 0 5%; /* Solo ocupará un 5% del ancho total */
-  max-width: 100px; /* Máximo de 100px de ancho */
-  text-align: center;
-}
-
-/* El segundo elemento (texto) que se expanda al resto del espacio disponible */
-.flex-item:nth-child(2) {
-  flex: 1; /* Ocupa el espacio restante */
-  padding: 0 10px;
-  text-align: justify; /* Alinea el texto de forma justificada */
-}
-
-/* El tercer elemento (imagen) que ocupe también el resto del espacio */
-.flex-item:nth-child(3) {
-  flex: 1; /* Se expande junto con el texto */
-  display: flex;
-  justify-content: flex-end; /* Alinea la imagen al margen derecho */
-  align-items: center;
-}
-
-.flex-item img {
-    height: auto; 
-    width: 85%;
-    object-fit: cover; /* Asegura que la imagen se ajuste correctamente dentro del contenedor sin deformarse */
-}
-
-/* Responsividad para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .flex-container {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .flex-item {
-      width: 100%; /* Asegura que ocupen todo el ancho */
-      margin: 0;
-      padding: 0;
-
-  }
-
-  .flex-item:nth-child(3) {
-      justify-content: center;  /* Centrar la imagen */
-      margin-top: 20px;         /* Espacio entre texto e imagen */
-      padding: 0;               /* Elimina cualquier padding */
-  }
-
-  .flex-item img {
-      width: 100%;     /* Imagen ocupará el 100% del ancho */
-      height: auto;    /* Mantén la proporción */
-      object-fit: cover;
-      margin: 0;       /* Elimina cualquier margen */
-      padding: 0;      /* Elimina cualquier padding */
-      display: block;  /* Asegura que se comporte correctamente como bloque */
-  }
-}
-
-/* Galería */
-body .parallax_wrapper #group-6 {
-  height: 100vh; /* Limitar la altura a la vista completa */
-  overflow-y: auto; /* Habilitar desplazamiento si hay demasiadas imágenes */
-}
-
-body .parallax_wrapper #group-6 > .mid_layer {
-  padding: 2rem 0; /* Añadir espacio alrededor de la galería */
-  margin-bottom: 2rem; /* Separación de la galería con la siguiente sección */
-}
-
-body .parallax_wrapper #group-6 ul {
-  list-style: none;
-  columns: 4; /* Mostrar 4 columnas en pantallas grandes */
-  column-gap: 1rem; /* Espacio entre columnas */
-}
-
-@media (max-width: 768px) {
-  body .parallax_wrapper #group-6 ul {
-      columns: 2; /* En pantallas pequeñas, dos columnas */
-  }
-}
-@media (max-width: 576px) {
-    body .parallax_wrapper #group-6 ul {
-        columns: 1; /* En pantallas muy pequeñas, reducir a 1 columna */
-    }
-}
-
-
-body .parallax_wrapper #group-6 ul li img {
-  max-width: 100%; /* Ajustar imágenes al 100% del ancho disponible */
-  height: auto; /* Mantener la proporción de las imágenes */
-  object-fit: cover; /* Asegurar que las imágenes se ajusten correctamente */
-  margin-bottom: 1rem; /* Espacio entre las imágenes */
-  border: 1px solid black; /* Añadir borde */
-  box-shadow: 1px 3px 8px rgba(0,0,0,0.5); /* Sombra para darle profundidad */
-}
-
-/*# sourceMappingURL=style.css.map */

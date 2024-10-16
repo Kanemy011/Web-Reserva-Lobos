@@ -14,6 +14,7 @@
   font-family: "Mont";
   src: url(Fonts/Mont-HeavyDEMO.otf) format("otf");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +28,22 @@ body {
   color: white;
   background-color: white;
 }
+
+h1 {
+  font-size: 2em;
+}
+
+p {
+  color: rgb(255, 255, 255);
+  font-size: 0.6em;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
 body .navbar {
   background-color: transparent !important;
   position: fixed !important;
@@ -38,48 +55,59 @@ body .navbar {
   padding-right: 20px;
   font-family: "Outfit";
 }
+
 body .navbar .navbar-collapse {
   justify-content: flex-end;
 }
+
 body .navbar a {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   text-decoration: none;
 }
+
 body .navbar .nav-item {
   margin-right: 10px;
   padding: 5px 10px;
 }
+
 body .navbar .nav-item:hover {
   outline: 1px solid white;
   border-radius: 5px;
 }
+
 body .navbar .navbar-toggler {
   background-color: white;
 }
+
 body .navbar.scrolled {
-  background-color: white !important; /* Cambiar a azul cuando se desplaza */
+  background-color: white !important;
 }
+
 body .navbar.scrolled a {
   color: black;
   text-decoration: none;
   text-shadow: none;
 }
+
 body .navbar.scrolled .nav-item:hover {
   outline: 1px solid black;
   border-radius: 5px;
 }
+
 body .parallax_wrapper {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 300px;
 }
+
 body .parallax_wrapper .parallax_group {
   position: relative;
   height: 100vh;
   transform-style: preserve-3d;
 }
+
 body .parallax_wrapper .parallax_group .parallax_layer {
   position: absolute;
   inset: 0;
@@ -88,16 +116,20 @@ body .parallax_wrapper .parallax_group .parallax_layer {
   align-items: center;
   text-align: center;
 }
+
 body .parallax_wrapper .parallax_group .bg_layer {
   transform: translateZ(-300px) scale(2);
   color: blue;
 }
+
 body .parallax_wrapper .parallax_group .mid_layer {
   transform: translateZ(0);
 }
+
 body .parallax_wrapper .parallax_group .top_layer {
   transform: translateZ(100px) scale(0.66);
 }
+
 body .parallax_wrapper .outro_screen {
   height: 100vh;
   background-color: teal;
@@ -106,9 +138,7 @@ body .parallax_wrapper .outro_screen {
   align-items: center;
   text-align: center;
 }
-body .parallax_wrapper #intro {
-  z-index: -1;
-}
+
 body .parallax_wrapper #intro > .bg_layer {
   background-image: url("Imagenes/hero13.jpg");
   background-repeat: no-repeat;
@@ -117,6 +147,7 @@ body .parallax_wrapper #intro > .bg_layer {
   background-attachment: fixed;
   background-color: tomato;
 }
+
 body .parallax_wrapper .title {
   position: absolute;
   bottom: 10vh;
@@ -128,40 +159,259 @@ body .parallax_wrapper .title {
   font-family: "Outfit";
   color: white;
 }
+
 body .parallax_wrapper .title h1 {
   font-size: 2.5em;
 }
+
 body .parallax_wrapper .title h2 {
   font-size: 1.2em;
 }
+
 body .parallax_wrapper #group-1 {
   z-index: 0;
 }
+
 body .parallax_wrapper #group-1 > .mid_layer {
   background-color: crimson;
 }
+
 body .parallax_wrapper #group-2 > .mid_layer {
   background-color: yellowgreen;
 }
+
 body .parallax_wrapper #group-3 > .mid_layer {
   background-color: blue;
 }
+
 body .parallax_wrapper #group-4 > .mid_layer {
   background-color: purple;
 }
+
 body .parallax_wrapper #group-5 > .mid_layer {
   background-color: rosybrown;
 }
+
 body .parallax_wrapper #group-6 > .mid_layer {
   background-color: peru;
 }
+
 body .parallax_wrapper #group-7 > .mid_layer {
   background-color: grey;
 }
+
 body .parallax_wrapper #group-8 > .mid_layer {
   background-color: turquoise;
 }
 
 .parallax_layer {
   min-width: 100vw;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* Ajustes para el contenedor flex */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: stretch;
+  justify-content: baseline;
+}
+
+/* Columna de texto */
+.flex-item:nth-child(2) {
+  flex: 1;
+  text-align: center; 
+  background-color: #0e0e0e84; 
+  color: #ffffff; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+}
+
+
+.flex-item:nth-child(3) {
+  flex: 1;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+
+.flex-item:nth-child(3) img {
+  height: 100%; 
+  max-width: 100%; 
+  object-fit: cover; 
+}
+
+.flex-item p {
+  margin: 0.5em;
+  margin-top: 1em;
+}
+
+.flex-item img {
+  margin-top: 0.55em;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .flex-item {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .flex-item:nth-child(2) {
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0;
+  }
+
+  .flex-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+}
+
+/* Galería */
+.galeria {
+  margin-top: 40px;
+}
+
+ul {
+  columns: 4;
+  column-gap: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  break-inside: avoid;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Media queries para pantallas medianas (entre 768px y 1024px) */
+@media (max-width: 1024px) {
+  ul {
+    columns: 2;
+    column-gap: 0.5em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+  }
+
+  img {
+    margin-bottom: 15px;
+    width: calc(100% - 0.5em);
+  }
+}
+
+/* Para pantallas pequeñas (menores de 768px) */
+@media (max-width: 768px) {
+  ul {
+    columns: 2;
+    column-gap: 0.3em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+  }
+
+  img {
+    margin-bottom: 10px;
+    width: calc(100% - 0.3em);
+  }
+}
+
+.ver-mas-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  ul li:nth-child(n+5) {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .ver-mas-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  ul {
+    columns: 2;
+    column-gap: 0.1em;
+    margin-left: 0.3em;
+    margin-right: 0.2em;
+  }
+
+  img {
+    width: calc(100% - 0.2em);
+    margin-bottom: 8px;
+  }
+}
+
+/* Ajuste para la sección "Adopt a Wolf" */
+#group-2 .top_layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#group-2 .top_layer ul {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+#group-2 .top_layer ul li {
+  margin-bottom: 10px; /* Espacio entre elementos */
+  color: black;
+  text-align: center;
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+  #group-2 .top_layer ul {
+    max-width: 100%; /* En pantallas pequeñas, ocupa todo el ancho */
+  }
+
+  #group-2 .top_layer ul li {
+    font-size: 0.9em; /* Ajustar tamaño de texto para pantallas pequeñas */
+    padding: 8px;
+  }
+}

@@ -165,7 +165,7 @@ body .parallax_wrapper .title h1 {
 }
 
 body .parallax_wrapper .title h2 {
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
 body .parallax_wrapper #group-1 {
@@ -207,6 +207,8 @@ body .parallax_wrapper #group-8 > .mid_layer {
 .parallax_layer {
   min-width: 100vw;
 }
+
+/*--- About Us ---*/
 
 /* Ajustes para el contenedor flex */
 .flex-container {
@@ -296,9 +298,11 @@ ul {
   margin-left: 0.5em;
   margin-right: 0.5em;
   padding: 0;
+  
 }
 
 li {
+  font-size: 0.7em;
   list-style-type: none;
   break-inside: avoid;
 }
@@ -328,6 +332,22 @@ img {
   }
 }
 
+.ver-mas-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+.hidden-image {
+  display: none;
+}
+
 /* Para pantallas pequeñas (menores de 768px) */
 @media (max-width: 768px) {
   ul {
@@ -341,21 +361,6 @@ img {
     margin-bottom: 10px;
     width: calc(100% - 0.3em);
   }
-}
-
-.ver-mas-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
   ul li:nth-child(n+5) {
     display: none;
   }
@@ -364,6 +369,9 @@ img {
 @media (min-width: 768px) {
   .ver-mas-btn {
     display: none;
+  }
+  .hidden-image {
+    display: inline-block;
   }
 }
 
@@ -381,37 +389,203 @@ img {
   }
 }
 
-/* Ajuste para la sección "Adopt a Wolf" */
+/* "Adopt a Wolf 1" */
+
 #group-2 .top_layer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center;       
+  justify-content: flex-start; 
   width: 100%;
-  padding: 20px;
+  padding: 0;                
+  margin: 0;                
   box-sizing: border-box;
+  text-align: center;         
+}
+
+#group-2 .top_layer h2 {
+  margin: 0;
+  padding-top: 0.5em;
+  margin-bottom: 1.2em;
+  font-size: 1.8em;
+}
+
+#group-2 .top_layer p {
+  margin-bottom: 1.8em;
 }
 
 #group-2 .top_layer ul {
-  padding: 0;
+  margin-top: 1em;  
   list-style: none;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+  background-color:#0e0e0e84;
+  border-radius: 0.3em;
+  padding: 0.5em;
 }
 
 #group-2 .top_layer ul li {
-  margin-bottom: 10px; /* Espacio entre elementos */
-  color: black;
-  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 0.7em;
 }
 
 /* Responsividad para pantallas más pequeñas */
 @media (max-width: 768px) {
   #group-2 .top_layer ul {
-    max-width: 100%; /* En pantallas pequeñas, ocupa todo el ancho */
+    flex-direction: column;
+    max-width: 100%;
+    padding: 10px; 
   }
 
   #group-2 .top_layer ul li {
-    font-size: 0.9em; /* Ajustar tamaño de texto para pantallas pequeñas */
-    padding: 8px;
+    font-size: 0.6em;
+    margin: 10px 0;
   }
+}
+
+/* Adop a Wolf 2 */
+.image-text-container {
+  position: relative; 
+  background-image: url('./Imagenes/wolf-4922973_1920.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  width: 95%; 
+  height: 110%; 
+  display: flex;
+  align-items: flex-end; 
+  justify-content: flex-end; 
+}
+
+/* Texto superpuesto */
+.overlay-text {
+  position: absolute; 
+  right: 0; 
+  bottom: 0;
+  text-align: right; 
+  font-size: 1em; 
+  margin: 2em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  border-radius: 0.8em;; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-end; 
+}
+
+.overlay-text h2 {
+  padding-bottom: 0.3em;
+}
+
+.overlay-text p {
+  font-size: 0.4em;
+}
+
+.overlay-text button {
+   
+  border-radius: 1.5em;
+  font-weight: bold;
+  background-color: #007bff; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+  width: 80%; 
+  letter-spacing: 6px;
+}
+
+/*--- Donativo ---*/
+
+#group-7 .top_layer {
+  display: flex;
+  flex-direction: row; /* Cambiado a row para que el título y texto estén junto a la imagen */
+  align-items: center;
+  padding: 2em 1em;
+}
+
+#group-7 .flex-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Imagen pegada al margen izquierdo */
+#group-7 .flex-item img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  margin: 0; /* Eliminado el margen para que la imagen quede pegada al borde */
+}
+
+/* Sección del texto con fondo semitransparente */
+#group-7 .flex-auto {
+  flex: 1;
+  color: #ffffff;
+  text-align: left;
+  padding-left: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(14, 14, 14, 0.7); /* Fondo semitransparente solo en el contenedor de texto */
+}
+
+/* Estilos del título */
+#group-7 h2 {
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+  font-family: 'BebasNeue', sans-serif;
+  margin-top: 0.8em;
+  margin-bottom: 0.2em;
+}
+
+/* Estilos del párrafo */
+#group-7 p {
+  font-size: 0.7em;
+  line-height: 1.4;
+  font-family: 'UniNeue', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  padding-bottom: 1em;
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+  #group-7 .flex-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #group-7 .flex-auto {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  #group-7 .flex-item img {
+    margin-bottom: 1.5em;
+  }
+}
+
+#group-7 .donativo-btn {
+  padding: 10px 20px;
+  font-size: 0.9em;
+  background-color: #1b6915;
+  color: white;
+  border: none;
+  border-radius: 1.5em;
+  font-weight: bold;
+  letter-spacing: 4px;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+#group-7 .donativo-btn:hover {
+  background-color: #052103;
 }

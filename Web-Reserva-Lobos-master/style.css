@@ -1,0 +1,186 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "BebasNeue";
+  src: url(Fonts/BebasNeue-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "UniNeue";
+  src: url(Fonts/UniNeue-Trial-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Nexa";
+  src: url(Fonts/Nexa-Heavy.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Mont";
+  src: url(Fonts/Mont-HeavyDEMO.otf) format("otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.8em;
+  color: white;
+  background-color: white;
+}
+body .navbar {
+  background-color: transparent !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100%;
+  z-index: 1;
+  font-size: 0.7em;
+  padding-right: 20px;
+  font-family: "Outfit";
+}
+body .navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+body .navbar a {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+body .navbar .nav-item {
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+body .navbar .nav-item:hover {
+  outline: 1px solid white;
+  border-radius: 5px;
+}
+body .navbar .navbar-toggler {
+  background-color: white;
+}
+body .navbar.scrolled {
+  background-color: white !important; /* Cambiar a azul cuando se desplaza */
+}
+body .navbar.scrolled a {
+  color: black;
+  text-decoration: none;
+  text-shadow: none;
+}
+body .navbar.scrolled .nav-item:hover {
+  outline: 1px solid black;
+  border-radius: 5px;
+}
+body .parallax_wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+}
+body .parallax_wrapper .parallax_group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+body .parallax_wrapper .parallax_group .parallax_layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+body .parallax_wrapper .parallax_group .bg_layer {
+  transform: translateZ(-300px) scale(2);
+  color: blue;
+}
+body .parallax_wrapper .parallax_group .mid_layer {
+  transform: translateZ(0);
+}
+body .parallax_wrapper .parallax_group .top_layer {
+  transform: translateZ(100px) scale(0.66);
+}
+body .parallax_wrapper .outro_screen {
+  height: 100vh;
+  background-color: teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+body .parallax_wrapper #intro {
+  z-index: -1;
+}
+body .parallax_wrapper #intro > .bg_layer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: tomato;
+}
+body .parallax_wrapper #intro > .bg_layer .video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; /* Asegura que el video cubra todo el área sin deformarse */
+  z-index: 1; /* Está detrás del contenido */
+  pointer-events: none; /* Evita que se pueda interactuar con el video (como clics) */
+}
+body .parallax_wrapper .title {
+  position: absolute;
+  bottom: 10vh;
+  right: 10vw;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-family: "Outfit";
+  color: white;
+}
+body .parallax_wrapper .title h1 {
+  font-size: 2.5em;
+}
+body .parallax_wrapper .title h2 {
+  font-size: 1.2em;
+}
+body .parallax_wrapper #group-1 {
+  z-index: 0;
+}
+body .parallax_wrapper #group-1 > .mid_layer {
+  background-color: crimson;
+}
+body .parallax_wrapper #group-2 > .mid_layer {
+  background-color: yellowgreen;
+}
+body .parallax_wrapper #group-3 > .mid_layer {
+  background-color: blue;
+}
+body .parallax_wrapper #group-4 > .mid_layer {
+  background-color: purple;
+}
+body .parallax_wrapper #group-5 > .mid_layer {
+  background-color: rosybrown;
+}
+body .parallax_wrapper #group-6 > .mid_layer {
+  background-color: peru;
+}
+body .parallax_wrapper #group-7 > .mid_layer {
+  background-color: grey;
+}
+body .parallax_wrapper #group-8 > .mid_layer {
+  background-color: turquoise;
+}
+body #quiz-container {
+  width: 90%;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.parallax_layer {
+  min-width: 100vw;
+}/*# sourceMappingURL=style.css.map */
